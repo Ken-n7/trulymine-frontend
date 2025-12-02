@@ -1,0 +1,36 @@
+<div class="container my-4 dashboard">
+
+  <div class="row g-4">
+
+    <div class="col-12 ">
+      <h2 class="fw-bold mb-3">Admin Dashboard</h2>
+    </div>
+
+    <!-- Top Selling Scents -->
+    <div class="col-lg-6 col-md-12">
+      <app-top-selling></app-top-selling>
+    </div>
+
+    <div class="col-6">
+
+    </div>
+
+    <!-- Bar Chart: Sales per Perfume -->
+    <div class="col-lg-6 col-md-12">
+      <div class="card shadow-sm rounded-4 p-3 h-100">
+        <h4 class="fw-bold mb-3 text-center">Perfume Sales</h4>
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Line Chart: Sales over Time -->
+    <div class="col-6">
+      <div class="card shadow-sm rounded-4 p-3">
+        <h4 class="fw-bold mb-3 text-center">Monthly Sales Trend</h4>
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+</div>

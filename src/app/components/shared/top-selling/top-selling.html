@@ -1,0 +1,25 @@
+<!-- top-selling.html -->
+<div class="top-selling">
+  <div class="male-section">
+    <h2>Top Male Perfumes</h2>
+    <ul>
+      @for (scent of maleScents; track scent.perfume_name) {
+        <li>
+          <span class="name">{{ scent.perfume_name }}</span>
+          <span class="quantity">{{ scent.total_quantity_sold }} sold</span>
+        </li>
+      }
+    </ul>
+  </div>
+  <div class="female-section">
+    <h2>Top Female Perfumes</h2>
+    <ul>
+      @for (scent of femaleScents; track scent.perfume_name) {
+        <li>
+          <span class="name">{{ scent.perfume_name }}</span>
+          <span class="quantity">{{ scent.total_quantity_sold }} sold</span>
+        </li>
+      }
+    </ul>
+  </div>
+</div>

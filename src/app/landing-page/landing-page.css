@@ -1,0 +1,55 @@
+/* Container spacing */
+.landing-page {
+  max-width: 900px;
+}
+
+/* Welcome Title */
+h2 {
+  font-size: 1.8rem;
+}
+
+/* Photo Below Welcome */
+.endorse-img {
+  max-width: 800px;
+  border-radius: 12px;
+  /* transition: transform 0.25s ease;
+  cursor: pointer; */
+}
+
+/* .endorse-img:hover {
+  transform: scale(1.05);
+} */
+
+/* Cards */
+/* .card {
+  border-radius: 18px !important;
+}
+
+.card-body .row {
+  font-size: 1rem;
+  padding: 6px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.card-body .row:last-child {
+  border-bottom: none;
+} */
+
+.landing-page {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Slightly smaller font on mobile */
+@media (max-width: 575.98px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .endorse-img {
+    max-width: 180px;
+  }
+}

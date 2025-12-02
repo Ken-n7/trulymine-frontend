@@ -1,0 +1,98 @@
+<header
+  class="d-flex justify-content-between align-items-center bg-white py-2 px-3 px-md-5 border-bottom position-relative"
+  style="border-color: #d9d9d9; z-index: 10;">
+  <div class="d-flex align-items-center">
+    <i class="bi bi-list fs-4"></i>
+  </div>
+
+  <div class="d-flex justify-content-center flex-grow-1">
+    <a href="/">
+      <img src="images/logo.webp" alt="Truly Mine Logo" class="logo img-fluid" style="max-height: 40px;" />
+    </a>
+  </div>
+
+  <div class="d-flex align-items-center">
+    <!-- Show user info and logout if logged in -->
+    @if (loggedIn()) {
+      <div class="d-flex align-items-center gap-2">
+        <span class="text-dark">{{ currentUser()?.name }}</span>
+        <a [routerLink]="isAdmin() ? '/admin' : '/admin'">
+          <i class="bi bi-person-fill fs-4 text-black"></i>
+        </a>
+        <button
+          class="btn btn-outline-danger btn-sm ms-2"
+          (click)="logout()"
+          style="font-size: 0.875rem; padding: 0.25rem 0.75rem;">
+          Logout
+        </button>
+      </div>
+    }
+
+    <!-- Show login button if on home page and not logged in -->
+    @if (isHomePage && !loggedIn()) {
+      <button
+        class="btn btn-primary"
+        (click)="openLoginModal()"
+        style="font-size: 1rem; padding: 0.25rem 0.75rem;">
+        Log In
+      </button>
+    }
+  </div>
+
+  <!-- Login Modal -->
+  @if (showLoginModal) {
+    <div class="modal-backdrop">
+      <div class="modal-content p-4 bg-white rounded shadow">
+        <h5>Login</h5>
+        <form (ngSubmit)="login()">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              id="email"
+              type="email"
+              [(ngModel)]="email"
+              name="email"
+              class="form-control"
+              [disabled]="loading"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              id="password"
+              type="password"
+              [(ngModel)]="password"
+              name="password"
+              class="form-control"
+              [disabled]="loading"
+              required
+            />
+          </div>
+          @if (errorMessage) {
+            <div class="alert alert-danger mb-2">{{ errorMessage }}</div>
+          }
+          <div class="d-flex justify-content-end">
+            <button
+              type="button"
+              class="btn btn-secondary me-2"
+              (click)="closeLoginModal()"
+              [disabled]="loading">
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="loading">
+              @if (loading) {
+                <span>Logging in...</span>
+              } @else {
+                <span>Log In</span>
+              }
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</header>

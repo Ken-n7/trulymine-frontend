@@ -1,0 +1,15 @@
+/* Fix modal z-index for backdrop and modal */
+.modal-backdrop.show {
+  opacity: 0.5;
+  z-index: 1040;
+}
+
+.modal.show {
+  z-index: 1050;
+  display: block;
+}
+
+/* Bootstrap modal button close */
+.btn-close {
+  cursor: pointer;
+}

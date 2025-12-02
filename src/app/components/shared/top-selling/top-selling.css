@@ -1,0 +1,35 @@
+/* top-selling.css */
+.top-selling {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.quantity {
+  color: #333;
+  font-weight: 600;
+}

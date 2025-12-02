@@ -1,0 +1,40 @@
+.footer-logo {
+  height: 150px;
+  width: auto;
+  border-radius: 35px;
+  border: 2px solid black;
+}
+
+.footer-title {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  color: black;
+  letter-spacing: 1px;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  color: black;
+}
+
+.qr-box {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+.qr-box:hover {
+  transform: scale(1.05);
+}
+
+footer a:hover i {
+  transform: translateY(-3px);
+  transition: 0.3s;
+}
+
+.fa-facebook:hover { color: #1877f2 !important; }
+.fa-instagram:hover { color: #e4405f !important; }
+.bi-envelope:hover   { color: #3498db !important; }

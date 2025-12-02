@@ -1,0 +1,89 @@
+<div class="container py-4">
+  <h3 class="mb-4">Inventory</h3>
+
+  <table class="table table-striped table-bordered align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>Perfume</th>
+        <th>Quantity</th>
+        <th style="width: 120px;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of inventory">
+        <td>{{ item.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>
+          <button
+            class="btn btn-primary btn-sm"
+            (click)="openEditModal(item)"
+          >
+            Update
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Edit Modal -->
+  <div
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    [ngClass]="{ show: isModalOpen }"
+    [ngStyle]="{ display: isModalOpen ? 'block' : 'none' }"
+    aria-labelledby="editModalLabel"
+    aria-hidden="{{ !isModalOpen }}"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form (ngSubmit)="saveEdit()">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">
+              Update Quantity for "{{ selectedItem?.name }}"
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="closeEditModal()"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="quantityInput" class="form-label">Quantity</label>
+              <input
+                type="number"
+                id="quantityInput"
+                class="form-control"
+                [(ngModel)]="editQuantity"
+                name="quantity"
+                min="0"
+                required
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="closeEditModal()"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal backdrop -->
+  <div
+    class="modal-backdrop fade"
+    [ngClass]="{ show: isModalOpen }"
+    *ngIf="isModalOpen"
+  ></div>
+</div>
